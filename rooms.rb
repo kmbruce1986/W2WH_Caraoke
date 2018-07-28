@@ -26,10 +26,7 @@ class Rooms
   end
 
   def room_has_capacity(guest)
-    if @guests.length <= @capacity 
-      return true
-    else false
-    end
+    return @guests.length <= @capacity ? true : false
   end
 
 end
