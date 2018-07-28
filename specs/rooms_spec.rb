@@ -8,14 +8,14 @@ require_relative("../songs.rb")
 class TestRooms < MiniTest::Test
 
   def setup
-    @guest1 = Guests.new("Marvin")
-    @guest2 = Guests.new("Sirius")
-    @guest3 = Guests.new("Kathleen")
+    @guest1 = Guests.new("Marvin", 20)
+    @guest2 = Guests.new("Sirius", 30)
+    @guest3 = Guests.new("Kathleen", 5)
     @song1 = Songs.new("Let It go")
     @song2 = Songs.new("Part Of Your World")
     @guests = [@guest1, @guest2, @quest3]
     @songs = [@song1, @song2]
-    @room = Rooms.new(1, @guests, @songs, 3)
+    @room = Rooms.new(1, @guests, @songs, 3, 100)
   end
 
   def test_can_get_room_number
@@ -51,12 +51,16 @@ class TestRooms < MiniTest::Test
   end
 
   def test_guest_rejected_if_no_capacity
-    @guest4 = Guests.new("Barry")
+    @guest4 = Guests.new("Barry", 3)
     @room.add_guest_to_room(@guest1)
     @room.add_guest_to_room(@guest2)
     @room.add_guest_to_room(@guest3)
     @room.add_guest_to_room(@guest4)
     assert_equal(3, @guests.count)
+  end
+
+  def test_can_get_amount_in_till
+    assert_equal(100, @room.till)
   end
 
 
