@@ -2,6 +2,7 @@ require("minitest/autorun")
 require("minitest/rg")
 
 require_relative("../guests.rb")
+require_relative("../rooms.rb")
 
 class TestGuests < MiniTest::Test
 
@@ -21,4 +22,5 @@ class TestGuests < MiniTest::Test
     @guest.remove_money_from_wallet(5)
     assert_equal(5, @guest.wallet)
   end
+  
 end

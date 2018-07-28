@@ -26,10 +26,12 @@ class Rooms
     return @guests.length <= @capacity ? true : false
   end
 
-  def add_guest_to_room(guest)
+  def add_guest_to_room(guest, entry_fee)
     room_has_capacity()
     if room_has_capacity == true
       @guests.push(guest)
+      add_money_to_till(entry_fee)
+      guest.remove_money_from_wallet(entry_fee)
     else return false
     end
   end
