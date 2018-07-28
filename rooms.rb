@@ -12,4 +12,8 @@ def count_number_of_guests_in_room
   return @guests.length
 end
 
+def add_guest_to_room(guest)
+  @guests.push(guest)
+end
+
 end

@@ -26,11 +26,11 @@ class TestRooms < MiniTest::Test
     assert_equal(2, @guests.count)
   end
 
-  # def test_can_check_in_guest
-  #   @room
-  #
-  #   assert_equal(2, @room.guests.count)
-  # end
+  def test_can_check_in_guest
+    @room.add_guest_to_room(@guest1)
+    @room.add_guest_to_room(@guest2)
+    assert_equal(2, @guests.count)
+  end
 
 
 
