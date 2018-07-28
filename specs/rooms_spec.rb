@@ -14,7 +14,7 @@ class TestRooms < MiniTest::Test
     @song2 = Songs.new("Part Of Your World")
     @guests = [@guest1, @guest2]
     @songs = [@song1, @song2]
-    @room = Rooms.new(1, @guests, @songs)
+    @room = Rooms.new(1, @guests, @songs, 5)
   end
 
   def test_can_get_room_number
@@ -40,11 +40,13 @@ class TestRooms < MiniTest::Test
   end
 
   def test_add_song_to_room
-    @song1 = Songs.new("Let It go")
-    @song2 = Songs.new("Part Of Your World")
     @room.add_song_to_room(@song1)
     @room.add_song_to_room(@song2)
     assert_equal(2, @songs.count)
+  end
+
+  def test_can_get_capacity
+    assert_equal(5, @room.capacity)
   end
 
 
