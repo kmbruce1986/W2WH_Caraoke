@@ -16,4 +16,9 @@ class TestGuests < MiniTest::Test
   def test_can_get_amount_in_wallet
     assert_equal(10, @guest.wallet)
   end
+
+  def test_can_remove_money_from_wallet
+    @guest.remove_money_from_wallet(5)
+    assert_equal(5, @guest.wallet)
+  end
 end

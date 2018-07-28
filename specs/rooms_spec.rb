@@ -63,6 +63,11 @@ class TestRooms < MiniTest::Test
     assert_equal(100, @room.till)
   end
 
+  def test_can_add_money_to_till
+    @room.add_money_to_till(5)
+    assert_equal(105, @room.till)
+  end
+
 
 
 end

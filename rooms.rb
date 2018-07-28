@@ -34,4 +34,9 @@ class Rooms
     end
   end
 
+  def add_money_to_till(entry_fee)
+    # it matters which comes first!
+    @till += entry_fee
+  end
+
 end

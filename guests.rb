@@ -7,5 +7,8 @@ class Guests
     @wallet = wallet
   end
 
+  def remove_money_from_wallet(entry_fee)
+    @wallet -= entry_fee
+  end
 
 end
