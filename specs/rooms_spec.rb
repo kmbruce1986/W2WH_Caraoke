@@ -32,6 +32,13 @@ class TestRooms < MiniTest::Test
     assert_equal(2, @guests.count)
   end
 
+  def test_can_check_out_guest
+    guest3 = Guests.new("Kathleen")
+    @room.add_guest_to_room(guest3)
+    @room.remove_guest_from_room(guest3)
+    assert_equal(2, @guests.count)
+  end
+
 
 
 end
