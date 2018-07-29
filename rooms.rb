@@ -25,9 +25,9 @@ class Rooms
   def room_has_capacity()
     return @guests.length <= @capacity ? true : false
   end
-  def add_money_to_till(entry_fee)
+  def add_money_to_till(entry_fee_or_drink)
     # it matters which comes first!
-    @till += entry_fee
+    @till += entry_fee_or_drink
   end
 
   def check_favourite_song_on_playlist(guest)

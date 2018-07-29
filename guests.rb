@@ -12,4 +12,9 @@ class Guests
     @wallet -= entry_fee
   end
 
+  def buy_drink(bar, room)
+    remove_money_from_wallet(bar.price)
+    room.add_money_to_till(bar.price)
+  end
+
 end
