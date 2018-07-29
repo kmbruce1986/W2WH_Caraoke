@@ -8,9 +8,9 @@ require_relative("../songs.rb")
 class TestRooms < MiniTest::Test
 
   def setup
-    @guest1 = Guests.new("Marvin", 20, "Everybody Wants to be a Cat")
-    @guest2 = Guests.new("Sirius", 30, "A Friend in Me")
-    @guest3 = Guests.new("Kathleen", 5, "When Will My Life Begin?")
+    @guest1 = Guests.new("Marvin", 20, "Everybody Wants to be a Cat", 4)
+    @guest2 = Guests.new("Sirius", 30, "A Friend in Me", 4)
+    @guest3 = Guests.new("Kathleen", 5, "When Will My Life Begin?", 5)
     @song1 = Songs.new("Let It go")
     @song2 = Songs.new("Part Of Your World")
     @guests = [@guest1, @guest2, @quest3]
@@ -53,7 +53,7 @@ class TestRooms < MiniTest::Test
   end
 
   def test_guest_rejected_if_no_capacity
-    @guest4 = Guests.new("Barry", 3, "I Want to build a snowman")
+    @guest4 = Guests.new("Barry", 3, "I Want to build a snowman", 6)
     # I'm not 100% why I need to define the entry_fee here - is there a more elegant way to do this? Should I add the entry fee to the Room class?
     entry_fee = 5
     @room.add_guest_to_room(@guest1, entry_fee)
