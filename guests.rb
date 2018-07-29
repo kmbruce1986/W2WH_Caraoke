@@ -13,16 +13,21 @@ class Guests
     @wallet -= entry_fee
   end
 
-  def buy_drink(bar, room)
-    remove_money_from_wallet(bar.price)
-    room.add_money_to_till(bar.price)
-  end
-
   def increase_skill_level(amount)
     @skill_level += amount
   end
 
   def decrease_skill_level(amount)
     @skill_level -= amount
+  end
+
+  def sings_song
+    increase_skill_level(1)
+  end
+
+  def buy_drink(bar, room)
+    remove_money_from_wallet(bar.price)
+    room.add_money_to_till(bar.price)
+    decrease_skill_level(1)
   end
 end

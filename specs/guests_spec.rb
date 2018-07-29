@@ -34,6 +34,7 @@ class TestGuests < MiniTest::Test
     @guest.buy_drink(@bar, @room)
     assert_equal(5, @guest.wallet)
     assert_equal(105, @room.till)
+    assert_equal(4, @guest.skill_level)
   end
 
   def test_can_get_skill_level
@@ -48,6 +49,11 @@ class TestGuests < MiniTest::Test
   def test_decrease_skill_level
     @guest.decrease_skill_level(1)
     assert_equal(4, @guest.skill_level)
+  end
+
+  def test_guest_sings_song_skill_level_increases
+    @guest.sings_song
+    assert_equal(6, @guest.skill_level)
   end
 
 end
