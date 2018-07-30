@@ -14,10 +14,14 @@ class Rooms
     return @guests.length
   end
 
+  def song_count
+    return @songs.length
+  end
+
   def remove_guest_from_room(guest)
-    # @guests.delete(guest) - does this work????
-    index = @guests.index(guest).to_i
-    @guests.delete_at(index)
+    @guests.delete(guest)
+    # index = @guests.index(guest).to_i
+    # @guests.delete_at(index)
   end
 
   def add_song_to_room(song)

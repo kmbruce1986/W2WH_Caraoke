@@ -50,7 +50,7 @@ class TestRooms < MiniTest::Test
   def test_add_song_to_room
     @room.add_song_to_room(@song1)
     @room.add_song_to_room(@song2)
-    assert_equal(2, @songs.count)
+    assert_equal(2, @room.song_count)
   end
 
   def test_can_get_capacity
@@ -62,13 +62,10 @@ class TestRooms < MiniTest::Test
   end
 
   def test_guest_rejected_if_no_capacity
-
-    # I'm not 100% why I need to define the entry_fee here - is there a more elegant way to do this? Should I add the entry fee to the Room class?
-    entry_fee = 5
-    @room.add_guest_to_room(@guest1, entry_fee)
-    @room.add_guest_to_room(@guest2, entry_fee)
-    @room.add_guest_to_room(@guest3, entry_fee)
-    @room.add_guest_to_room(@guest4, entry_fee)
+    @room.add_guest_to_room(@guest1, 5)
+    @room.add_guest_to_room(@guest2, 5)
+    @room.add_guest_to_room(@guest3, 5)
+    @room.add_guest_to_room(@guest4, 5)
     assert_equal(4, @room.guest_count)
   end
 
